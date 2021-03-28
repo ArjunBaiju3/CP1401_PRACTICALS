@@ -7,7 +7,6 @@ def main():
     print(check_rank(score))
 
 def check_rank(score):
-    """Determine the status of a given score."""
     if score < 0 or score > 100:
         return "Invalid score"
     elif score >= 90:
