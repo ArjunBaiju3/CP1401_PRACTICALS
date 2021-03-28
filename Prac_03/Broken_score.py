@@ -3,7 +3,9 @@ CP1404/CP5632 - Practical
 Broken program to determine score status
 """
 def main():
-    score = float(input("Enter score: "))
+    import random
+    score = (random.randint(0, 101))
+    print("Score =", score)
     print(check_rank(score))
 
 def check_rank(score):
