@@ -10,7 +10,7 @@ def main():
     unreliable_car = UnreliableCar("Poor reliability", 100, 5)
 
     for i in range(1, 11):
-        print("Drive car {}km:")
+        print("Drive car {}km:".format(i))
         print("{:12} drove {:2}km".format(reliable_car.name, reliable_car.drive(i)))
         print("{:12} drove {:2}km".format(unreliable_car.name, unreliable_car.drive(i)))
         print("")
