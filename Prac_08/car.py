@@ -27,9 +27,9 @@ class Car:
         self.fuel += amount
 
     def drive(self, distance):
-        """Drive the car a given distance.
-        Drive given distance if car has enough fuel
-        or drive until fuel runs out return the distance actually driven.
+        """Drive the car the distance provided, if the car has enough fuel. 
+        If the distance is greater than the fuel, drive the car until the fuel runs out 
+        and return the distance actually driven
         """
         if distance > self.fuel:
             distance = self.fuel
