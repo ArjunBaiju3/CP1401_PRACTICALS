@@ -1,6 +1,6 @@
 """
 CP1404/CP5632 Practical
-Clean up song file names
+Cleanup song file names
 """
 
 import os
@@ -29,6 +29,18 @@ def main():
 
         new_name = get_fixed_filename(filename)
         print("Renaming {} to {}".format(filename, new_name))
+
+
+def get_fixed_filename(filename):
+    """Return a 'fixed' format of filename."""
+    filename_with_underscore = filename.replace(" ", "_").replace(".TXT", ".txt").strip(".txt")
+    if "_" not in filename_with_underscore:  # if filename is not separated
+        separated_filename = "".join(" " + char if char.isupper() else char for char in filename_with_underscore).strip(
+            " ").split(" ")
+        formatted_filename = "_".join(separated_filename)
+    else:
+        formatted_filename = filename_with_underscore.title()
+    return formatted_filename + ".txt"
 
 
 main()
