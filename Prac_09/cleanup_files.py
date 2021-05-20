@@ -1,13 +1,14 @@
 """
 CP1404/CP5632 Practical
-Demos of various os module examples
+Clean up song file names
 """
 
+import shutil
 import os
 
 
 def main():
-    """Demo of os module functions."""
+    """Demo os module functions."""
     print("Starting directory is: {}".format(os.getcwd()))
 
     # Change to desired directory
@@ -18,6 +19,7 @@ def main():
 
     # Make a new directory
     # The next time you run this, it will crash if the directory exists
+
     try:
         os.mkdir('temp')
     except FileExistsError:
@@ -31,6 +33,7 @@ def main():
 
         new_name = get_fixed_filename(filename)
         print("Renaming {} to {}".format(filename, new_name))
+
 
         # Option 1: rename file to new name - in place
         # os.rename(filename, new_name)
@@ -54,7 +57,7 @@ def demo_walk():
         print("\tand files:", filenames)
         print("(Current working directory is: {})".format(os.getcwd()))
 
-        #get file_path for every filename and rename all
+        # get file_path for every filename and rename all
         for filename in filenames:
             file_path = os.path.join(directory_name, filename)
             os.rename(file_path, file_path)
