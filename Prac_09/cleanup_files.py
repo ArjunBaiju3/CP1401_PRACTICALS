@@ -11,7 +11,7 @@ def main():
     print("Starting directory is: {}".format(os.getcwd()))
 
     # Change to desired directory
-    os.chdir('Lyrics/Christmas')
+    os.chdir('Lyrics')
 
     # Print a list of all files in current directory
     print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
