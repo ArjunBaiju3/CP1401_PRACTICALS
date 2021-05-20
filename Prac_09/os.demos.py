@@ -53,8 +53,12 @@ def demo_walk():
         print("\tand files:", filenames)
         print("(Current working directory is: {})".format(os.getcwd()))
 
-        # TODO: add a loop to rename the files
+        # get file_path for every filename and rename all
+        for filename in filenames:
+            file_path = os.path.join(directory_name, filename)
+            os.rename(file_path, file_path)
+            print(f"{file_path} has been renamed to {file_path}")
 
 
-main()
-# demo_walk()
+#main()
+demo_walk()
