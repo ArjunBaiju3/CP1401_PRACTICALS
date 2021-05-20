@@ -4,7 +4,7 @@ UnreliableCar class
 from Prac_08.car import Car
 from random import randint
 
-
+"""Unreliable car class"""
 class UnreliableCar(Car):
 
     def __init__(self, name, fuel, reliability):
