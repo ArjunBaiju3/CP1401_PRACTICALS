@@ -3,12 +3,11 @@ CP1404/CP5632 Practical
 Clean up song file names
 """
 
-import shutil
 import os
 
 
 def main():
-    """Demo os module functions."""
+    """Cleanup or alter song filenames to same format"""
     print("Starting directory is: {}".format(os.getcwd()))
 
     # Change to desired directory
@@ -16,9 +15,6 @@ def main():
 
     # Print a list of all files in current directory
     print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
-
-    # Make a new directory
-    # The next time you run this, it will crash if the directory exists
 
     try:
         os.mkdir('temp')
@@ -35,34 +31,4 @@ def main():
         print("Renaming {} to {}".format(filename, new_name))
 
 
-        # Option 1: rename file to new name - in place
-        # os.rename(filename, new_name)
-
-        # Option 2: move file to new place, with new name
-        # shutil.move(filename, 'temp/' + new_name)
-
-
-def get_fixed_filename(filename):
-    """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-    return new_name
-
-
-def demo_walk():
-    """Process all subdirectories using os.walk()."""
-    os.chdir('Lyrics')
-    for directory_name, subdirectories, filenames in os.walk('.'):
-        print("Directory:", directory_name)
-        print("\tcontains subdirectories:", subdirectories)
-        print("\tand files:", filenames)
-        print("(Current working directory is: {})".format(os.getcwd()))
-
-        # get file_path for every filename and rename all
-        for filename in filenames:
-            file_path = os.path.join(directory_name, filename)
-            os.rename(file_path, file_path)
-            print(f"{file_path} has been renamed to {file_path}")
-
-
-#main()
-demo_walk()
+main()
