@@ -7,9 +7,8 @@ import os
 
 
 def main():
-     """Move files into where user wants to store them based on extension."""
-
-    #Dictionary to sort extensions into category folders
+    """Move files into user inputted directory"""
+    # Dictionary to sort extensions into category folders
     extension_to_destination_folder = {}
 
     os.chdir("FilesToSort")
@@ -18,14 +17,15 @@ def main():
             continue
 
         file_extension = filename.split('.')[-1]
-        try:
-            os.mkdir(file_extension)
-        except FileExistsError:
-            pass
-        print("{}/{}".format(file_extension, filename))
+        if file_extension not in extension_to_destination_folder:
+            category = input("What category would you like to sort {} files into? ".format(file_extension))
+            extension_to_destination_folder[file_extension] = category
+            try:
+                os.mkdir(category)
+            except FileExistsError:
+                pass
 
-        os.rename(filename, "{}/{}".format(file_extension, filename))
+        os.rename(filename, "{}/{}".format(extension_to_destination_folder[file_extension], filename))
 
 
 main()
-
