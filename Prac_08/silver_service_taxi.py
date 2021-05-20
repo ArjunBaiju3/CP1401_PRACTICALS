@@ -5,7 +5,7 @@ SilverServiceTaxi class
 from Prac_08.taxi import Taxi
 
 
-class SilverServiceTaxis(Taxi):
+class SilverServiceTaxi(Taxi):
 
     def __init__(self, name, fuel, fanciness):
         super().__init__(name, fuel)
