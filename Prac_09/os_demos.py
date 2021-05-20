@@ -2,12 +2,12 @@
 CP1404/CP5632 Practical
 Demos of various os module examples
 """
-import shutil
+
 import os
 
 
 def main():
-    """Demo os module functions."""
+    """Demo of os module functions."""
     print("Starting directory is: {}".format(os.getcwd()))
 
     # Change to desired directory
@@ -18,8 +18,10 @@ def main():
 
     # Make a new directory
     # The next time you run this, it will crash if the directory exists
-    # TODO: Use exception handling to avoid the crash (just pass)
-    os.mkdir('temp')
+    try:
+        os.mkdir('temp')
+    except FileExistsError:
+        pass
 
     # Loop through each file in the (current) directory
     for filename in os.listdir('.'):
@@ -30,7 +32,6 @@ def main():
         new_name = get_fixed_filename(filename)
         print("Renaming {} to {}".format(filename, new_name))
 
-        # TODO: Try these options one at a time
         # Option 1: rename file to new name - in place
         # os.rename(filename, new_name)
 
@@ -53,8 +54,12 @@ def demo_walk():
         print("\tand files:", filenames)
         print("(Current working directory is: {})".format(os.getcwd()))
 
-        # TODO: add a loop to rename the files
+        # get file_path for every filename and rename all
+        for filename in filenames:
+            file_path = os.path.join(directory_name, filename)
+            os.rename(file_path, file_path)
+            print(f"{file_path} has been renamed to {file_path}")
 
 
-main()
-# demo_walk()
+#main()
+demo_walk()
