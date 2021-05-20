@@ -6,7 +6,7 @@ import os
 
 
 def main():
-    """Move files into folders with the same name as their extension."""
+    """Move files into file type folders"""
     os.chdir("FilesToSort")
     for filename in os.listdir('.'):
         if os.path.isdir(filename):
