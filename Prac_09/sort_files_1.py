@@ -18,6 +18,7 @@ def main():
             pass
         print("{}/{}".format(file_extension, filename))
 
+        os.rename(filename, "{}/{}".format(file_extension, filename))
 
 
 main()
