@@ -2,7 +2,7 @@
 SilverServiceTaxi class test
 """
 
-from Prac_08.silver_service_taxi import SilverServiceTaxis
+from Prac_08.silver_service_taxi import SilverServiceTaxi
 
 
 def main():
